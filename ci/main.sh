@@ -7,11 +7,8 @@ cd $WORKSPACE
 mkdir -p coverage_report
 mkdir -p reports
 
-pwd
-ls -la
-
-
 py.test src/
 
+echo "bar!!!"
 
 exit $result
