@@ -31,7 +31,7 @@ pipeline {
       }
     }
     stage('PR Coverage to Github') {
-      when { allOf {not { branch 'master' }; expression { return env.CHANGE_ID != null }} }
+      when { allOf {not { branch 'master' }; expression { return env.CHANGE_ID != null && env.JOB_BASE_NAME.contains('-head') } } }
       steps {
         script {
           currentBuild.result = 'SUCCESS'
