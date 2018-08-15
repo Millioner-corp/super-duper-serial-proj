@@ -106,3 +106,4 @@ venv.bak/
 var/
 .idea/
 reports/*
+cobertura.xml
