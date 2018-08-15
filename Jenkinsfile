@@ -16,7 +16,7 @@ pipeline {
     stage('Detect Coverage') {
       steps {
         junit keepLongStdio: true, testResults: 'reports/*.junit.xml'
-        cobertura coberturaReportFile: 'reports/*.coverage.xml', sourceEncoding: 'UTF_8'
+        cobertura coberturaReportFile: 'cobertura.xml', sourceEncoding: 'UTF_8'
         echo 'Cobertura done'
       }
     }

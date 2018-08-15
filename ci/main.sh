@@ -9,6 +9,8 @@ mkdir -p reports
 
 py.test src/
 
+printenv
+
 echo "bar!!!"
 
 exit $result
