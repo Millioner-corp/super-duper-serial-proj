@@ -13,6 +13,12 @@ pipeline {
         }
       }
     }
+    stage('Detect Coverage') {
+      steps {
+        junit keepLongStdio: true, testResults: 'reports/*.junit.xml'
+        cobertura coberturaReportFile: 'reports/*.coverage.xml', sourceEncoding: 'UTF_8'
+      }
+    }
     stage('Record Coverage') {
       when { branch 'master' }
       steps {
@@ -30,17 +36,6 @@ pipeline {
         }
         step([$class: 'CompareCoverageAction', scmVars: [GIT_URL: env.GIT_URL]])
       }
-    }
-  }
-  post {
-    always {
-
-      echo 'Finally...'
-
-      junit keepLongStdio: true, testResults: 'reports/*.junit.xml'
-      cobertura coberturaReportFile: 'reports/*.coverage.xml', sourceEncoding: 'UTF_8'
-
-      echo 'Finished!!!!!!!!!!!!'
     }
   }
 }
