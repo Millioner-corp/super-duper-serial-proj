@@ -33,9 +33,6 @@ pipeline {
     }
   }
   post {
-    success {
-
-    }
     always {
 
       echo 'Finally...'
@@ -44,9 +41,6 @@ pipeline {
       cobertura coberturaReportFile: 'reports/*.coverage.xml', sourceEncoding: 'UTF_8'
 
       echo 'Finished!!!!!!!!!!!!'
-    }
-    cleanup {
-
     }
   }
 }
